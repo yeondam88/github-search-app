@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <input type="text" name="username" [(ngModel)]="username" (keyup)="search(username)" placeholder="Search by Username">  
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="user">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img class="img-thumbnail" src="{{user.avatar_url}}" alt="avatar" />
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <span class="label label-success">{{user.public_repos}} Repos</span>
+                <span class="label label-info">{{user.public_gists}} Gists</span>
+                <span class="label label-warning">{{user.followers}} Followers</span>
+                <span class="label label-danger">{{user.following}} following</span>
+                <ul class="list-group">
+                  <li class="list-group-item">Name: {{user.name}}</li>
+                  <li class="list-group-item">Location: {{user.location}}</li>
+                  <li class="list-group-item">Email: {{user.email}}</li>
+                  <li class="list-group-item">Bio: {{user.bio ? user.bio : 'Bio N/A'}}</li>
+                  <li class="list-group-item">Member Since: {{user.created_at}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div *ngFor="let repo of repos" class="panel-body">
+      <div class="inner-container">
+        <h3>Title: {{ repo.name }}</h3>
+        <span><img class="avatar" src="{{ repo.owner.avatar_url }}" alt="Avatar" /></span>
+      </div>
+      <hr />
+      <blockquote>
+        <p>{{ repo.description }}</p>
+      </blockquote>
+    </div>
+  </div>
+
+</div>
