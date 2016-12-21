@@ -13,7 +13,7 @@ export class GithubComponent {
   repos: any;
   username: string = '';
 
-  constructor(private _githubService: GithubService) { 
+  constructor(private _githubService: GithubService) {
     console.log('service is injected...');
   }
 

@@ -42,50 +42,53 @@
 }
 
 .layout__content {
-  display: flex;
+  width: 100%;
   .hero-background {
     background: linear-gradient(rgb(211,47,47), rgb(244,67,54));
     margin-bottom: 60px;
-    flex-grow: 1;
     .hero__content {
-      width: 50%;
-      margin: auto;
-      img {
-        animation: macbook .7s linear;
-        transition: all .7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        width: 280px;
-        &:hover {
-          transform: scale(1.1);
+      height: 340px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .hero__content__img {
+        .hero__img {
+          width:300px;
+          transition: all .12s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          animation: macbook .12s linear;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
+      .hero__content__text {
+        margin-left: 3rem;
+        color: #fff;
+        h4 {
+          font-size: 2rem;
+          font-weight: 300;
+        }
+      }  
     }
   }
 }
 
-.hero__content_container {
-  position: relative;
-  .macbook {
-    width: 120px !important;
-    animation: macbook .12s linear;
-    transition: all .12s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    position: absolute;
-    top: 100px;
-    left: 20px;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-  h4 {
-    position: absolute;
-    top: 130px;
-    left: 150px;
-    color: white;
-    font-weight: 500;
-  }
-}
+
 
 @keyframes macbook {
   0%{transform: translateY(300px)}
   50%{transform: translateY(10px)}
   100% {transform: translateY(0px)}
+}
+
+@media (max-width: 870px) {
+  .top-nav {
+    justify-content: center;
+    align-items: center;
+  }
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+  }
 }

@@ -38,7 +38,9 @@
   <div class="panel panel-default">
     <div *ngFor="let repo of repos" class="panel-body">
       <div class="inner-container">
-        <h3>Title: {{ repo.name }}</h3>
+        <h3><a target="_blank" href="{{repo.html_url}}">{{ repo.name }}</a>
+          <span class="label label-success label-repo">{{repo.watchers}} Watchers</span>
+          <span class="label label-info label-repo">{{repo.forks}} Forks</span></h3>
         <span><img class="avatar" src="{{ repo.owner.avatar_url }}" alt="Avatar" /></span>
       </div>
       <hr />
